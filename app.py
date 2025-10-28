@@ -107,8 +107,7 @@ def gallery():
 
 @app.route('/testimonials')
 def testimonials():
-    testimonials_data = get_testimonials()
-    return render_template('testimonials.html', testimonials=testimonials_data)
+    return render_template('testimonials.html', testimonials={'images': [], 'texts': []})
 
 @app.route('/services')
 def services():
@@ -146,4 +145,4 @@ def contact():
     return render_template('contact.html')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=8083, debug=True)
