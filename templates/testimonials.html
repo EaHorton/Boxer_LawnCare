@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <h2 class="card-title">What Our Customers Say</h2>
+        
+        {% if testimonials.images %}
+        <div class="row mb-4">
+            {% for image in testimonials.images %}
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="{{ url_for('custom_static_testimonials', filename=image) }}" 
+                             class="img-fluid" 
+                             alt="Customer Review"
+                             style="max-width: 500px; display: block; margin: auto;">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if testimonials.texts %}
+        <div class="row">
+            {% for testimonial in testimonials.texts %}
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ testimonial.title }}</h5>
+                        <p class="card-text">{{ testimonial.content }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if not testimonials.images and not testimonials.texts %}
+        <p class="text-center text-muted">No testimonials available</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
