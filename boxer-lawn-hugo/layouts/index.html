@@ -1,0 +1,72 @@
+{{ define "main" }}
+<div class="container">
+    <!-- Hero Section -->
+    <div class="card mb-4">
+        <div class="card-body text-center py-5">
+            <h1 class="display-4 fw-bold mb-4">Welcome to Boxer Lawn & Landscape</h1>
+            <p class="lead mb-4">Professional Lawn Care Services for Your Perfect Outdoor Space</p>
+            <a href="/contact" class="btn btn-primary btn-lg">Get a Free Quote</a>
+        </div>
+    </div>
+
+    <!-- Services Preview -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title mb-4">Our Services</h2>
+            <div class="row">
+                {{ range where .Site.RegularPages "Section" "services" }}
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ .Title }}</h3>
+                            <p class="card-text">{{ .Summary }}</p>
+                            <a href="{{ .RelPermalink }}" class="btn btn-outline-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+
+    <!-- Why Choose Us -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title mb-4">Why Choose Us</h2>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="text-center">
+                        <i class="fas fa-certificate fa-3x mb-3" style="color: #8B0000;"></i>
+                        <h4>Licensed Professionals</h4>
+                        <p>Expert service from qualified lawn care specialists</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="text-center">
+                        <i class="fas fa-leaf fa-3x mb-3" style="color: #8B0000;"></i>
+                        <h4>Eco-Friendly</h4>
+                        <p>Sustainable practices for a healthier environment</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="text-center">
+                        <i class="fas fa-star fa-3x mb-3" style="color: #8B0000;"></i>
+                        <h4>Customer Satisfaction</h4>
+                        <p>Committed to exceeding your expectations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="card">
+        <div class="card-body text-center">
+            <h2 class="card-title mb-4">Contact Us</h2>
+            <p class="mb-2"><i class="fas fa-phone me-2"></i>{{ .Site.Params.phone }}</p>
+            <p class="mb-2"><i class="fas fa-envelope me-2"></i>{{ .Site.Params.email }}</p>
+            <p><i class="fas fa-map-marker-alt me-2"></i>{{ .Site.Params.address }}</p>
+        </div>
+    </div>
+</div>
+{{ end }}
