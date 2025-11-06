@@ -1,7 +1,7 @@
 ---
-title: Contact Us
+title: Contact
 layout: contact
 menu:
   main:
-    weight: 50
+    weight: 5
 ---
