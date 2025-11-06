@@ -1,6 +1,5 @@
 ---
 title: Contact
-layout: contact.html
 menu:
   main:
     weight: 5
