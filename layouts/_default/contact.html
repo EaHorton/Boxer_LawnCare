@@ -2,11 +2,13 @@
 <div class="container my-5">
     <div class="content-section">
         <div class="card shadow">
-            <div class="card-body">
+                <div class="card-body">
                 <h2 class="section-title text-center mb-4" style="color: #8B0000;">Contact Us</h2>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 mx-auto">
                         <form action="https://formspree.io/f/your-formspree-id" method="POST" class="needs-validation" novalidate>
+                            <input type="hidden" name="_subject" value="New Contact Form Submission - Boxer Lawn Care">
+                            <input type="hidden" name="_next" value="{{ .Site.BaseURL }}thank-you">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name (required)</label>
                                 <input type="text" class="form-control" id="name" name="name" required>
