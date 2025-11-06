@@ -1,0 +1,31 @@
+{{ define "main" }}
+<div class="container">
+    <div class="card border-0 shadow-sm">
+        <div class="card-body">
+            <h2 class="section-title">Our Work</h2>
+            <div class="row">
+                {{/* List images from static/images/customer_photos/ */}}
+                {{ $photos := readDir "static/images/customer_photos" }}
+                {{ if $photos }}
+                    {{ range $i, $f := $photos }}
+                        {{ if (and (not $f.IsDir) (in (lower $f.Name) ".jpg") | or (in (lower $f.Name) ".jpeg") | or (in (lower $f.Name) ".png") ) }}
+                        <div class="col-md-4">
+                            <div class="card feature-card mb-4">
+                                <img src="/images/customer_photos/{{ $f.Name }}" 
+                                     class="img-fluid" 
+                                     alt="Customer Photo"
+                                     style="border-radius: 15px; transition: transform 0.3s ease-in-out;">
+                            </div>
+                        </div>
+                        {{ end }}
+                    {{ end }}
+                {{ else }}
+                    <div class="col-12">
+                        <p class="text-center text-muted">No photos available</p>
+                    </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}

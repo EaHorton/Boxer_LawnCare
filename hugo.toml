@@ -1,0 +1,31 @@
+baseURL = 'https://boxerlawn.com/'
+languageCode = 'en-us'
+title = 'Boxer Lawn & Landscape'
+
+[menu]
+  [[menu.main]]
+    name = 'Home'
+    url = '/'
+    weight = 1
+  [[menu.main]]
+    name = 'Services'
+    url = '/services/'
+    weight = 2
+  [[menu.main]]
+    name = 'Gallery'
+    url = '/gallery/'
+    weight = 3
+  [[menu.main]]
+    name = 'Testimonials'
+    url = '/testimonials/'
+    weight = 4
+  [[menu.main]]
+    name = 'Contact'
+    url = '/contact/'
+    weight = 5
+
+[params]
+  description = "Professional lawn care and landscaping services"
+  phone = "(555) 123-4567"
+  email = "info@boxerlawn.com"
+  address = "123 Main Street, Anytown, USA"

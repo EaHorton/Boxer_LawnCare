@@ -1,0 +1,78 @@
+{{ define "main" }}
+<div class="container">
+    <div class="service-card">
+        <div class="card-body">
+            <h2 class="card-title fw-bold" style="color: #8B0000;">{{ .Title }}</h2>
+            {{ $raw := .RawContent }}
+            {{ $lines := split $raw "\n" }}
+            {{ $i := 0 }}
+            {{ range $lines }}
+                {{ if and (ne (trim . "\n\r\t ") "") (lt $i 1000000) }}
+                    {{ break }}
+                {{ end }}
+                {{ $i = add $i 1 }}
+            {{ end }}
+            {{ $remaining := slice }}
+            {{ range $index, $line := $lines }}
+                {{ if ge $index $i }}
+                    {{ $remaining = $remaining | append $line }}
+                {{ end }}
+            {{ end }}
+            {{ $joined := delimit $remaining "\n" }}
+            {{ $paragraphs := split $joined "\n\n" }}
+
+            {{ if eq .Title "Core Aeration" }}
+                {{ $inList := false }}
+                {{ range $index, $para := $paragraphs }}
+                    {{ $trim := trim $para "\n\r\t " }}
+                    {{ if in $trim "The benefits of core aeration include:" }}
+                        <p class="card-text">{{ $trim | markdownify }}</p>
+                        <ul class="list-unstyled mt-3">
+                        {{ $inList = true }}
+                    {{ else if and (in $trim ":") (not (in $trim "The benefits")) }}
+                        <li class="mb-2">
+                            <strong>{{ index (split $trim ":") 0 }}:</strong>
+                            {{ index (split $trim ":") 1 | markdownify }}
+                        </li>
+                    {{ else }}
+                        {{ if $inList }}
+                            </ul>
+                            {{ $inList = false }}
+                        {{ end }}
+                        <p class="card-text mt-3">{{ $trim | markdownify }}</p>
+                    {{ end }}
+                {{ end }}
+                <div class="mt-4">
+                    <figure class="text-center">
+                        <img src="/images/aeration-diagram.png" 
+                             alt="Core Aeration Process Diagram" 
+                             class="img-fluid rounded shadow-sm"
+                             style="width: 100%; max-width: 800px; height: auto; margin: 0 auto; display: block;">
+                        <figcaption class="mt-2 text-muted">
+                            Visual representation of the core aeration process and its benefits
+                        </figcaption>
+                    </figure>
+                </div>
+            {{ else }}
+                {{ range $para := $paragraphs }}
+                    {{ $trim := trim $para "\n\r\t " }}
+                    {{ if or (hasPrefix $trim "Weed Control:") (hasPrefix $trim "Fertilization:") }}
+                        <p class="card-text">
+                            <strong>{{ index (split $trim ":") 0 }}:</strong>
+                            {{ index (split $trim ":") 1 | markdownify }}
+                        </p>
+                    {{ else }}
+                        <p class="card-text">{{ $trim | markdownify }}</p>
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+            
+            <div class="mt-4">
+                <a href="/services" class="btn btn-outline-primary">
+                    <i class="fas fa-arrow-left me-2"></i>Back to Services
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}

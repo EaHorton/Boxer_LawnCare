@@ -1,0 +1,33 @@
+[build]
+  command = "hugo"
+  publish = "public"
+
+[build.environment]
+  HUGO_VERSION = "0.152.2"
+
+[context.production.environment]
+  HUGO_ENV = "production"
+  HUGO_ENABLEGITINFO = "true"
+
+[[redirects]]
+  from = "/thank-you"
+  to = "/thank-you/"
+  status = 200
+
+[[forms]]
+  name = "contact"
+  subject = "New Contact Form Submission"
+  
+  [forms.fields]
+    [forms.fields.name]
+      required = true
+    [forms.fields.email]
+      required = true
+    [forms.fields.phone]
+      required = true
+    [forms.fields.address]
+      required = true
+    [forms.fields.square_footage]
+      required = false
+    [forms.fields.message]
+      required = false

@@ -1,0 +1,101 @@
+{{ define "main" }}
+<div class="container my-5">
+    <div class="content-section">
+        <div class="section-header text-center mb-5">
+            <h2 class="section-title" style="color: #8B0000;">What Our Customers Say</h2>
+            <p class="section-subtitle">Read reviews from our valued customers across Upstate South Carolina</p>
+        </div>
+
+        <!-- Google Reviews Section -->
+        <div class="testimonials-section mb-5">
+            <div class="google-reviews-header text-center mb-4">
+                <div class="d-flex align-items-center justify-content-center gap-2 mb-3">
+                    <i class="fab fa-google fa-2x" style="color: #8B0000;"></i>
+                    <div class="d-flex gap-1">
+                        <i class="fas fa-star" style="color: #FFD700;"></i>
+                        <i class="fas fa-star" style="color: #FFD700;"></i>
+                        <i class="fas fa-star" style="color: #FFD700;"></i>
+                        <i class="fas fa-star" style="color: #FFD700;"></i>
+                        <i class="fas fa-star" style="color: #FFD700;"></i>
+                    </div>
+                </div>
+                <h3 class="testimonial-subtitle" style="color: #8B0000;">Our Google Reviews</h3>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <!-- Review Cards -->
+                <div class="col-md-6">
+                    <div class="testimonial-card">
+                        <div class="card h-100 shadow">
+                            <div class="card-body">
+                                <div class="d-flex gap-1 mb-2">
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                </div>
+                                <p class="testimonial-text">"This is truly the best lawn and landscape service I have had. He uses quality professional grade nutrients and weed control products. Boxer Lawn has turned my old weed grass to a nice lush weed controlled lawn! Ty. Def recommend!"</p>
+                                <p class="testimonial-author">- Luis Rodriguez</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="testimonial-card">
+                        <div class="card h-100 shadow">
+                            <div class="card-body">
+                                <div class="d-flex gap-1 mb-2">
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                </div>
+                                <p class="testimonial-text">"Boxer Lawn and Landscapes does a great job, they have turned my once heavily weeded yard into a beautiful lawn. I love that they keep track of when I'm due for treatment because I would forget to schedule otherwise. Highly recommend!!!"</p>
+                                <p class="testimonial-author">- Kellie Lamaster</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="https://www.google.com/search?q=google+reviews+boxer+lawn+and+landscape" 
+                   class="btn btn-outline-primary custom-button" 
+                   target="_blank">
+                    <i class="fas fa-external-link-alt me-2"></i>See More Reviews on Google
+                </a>
+            </div>
+        </div>
+
+        <!-- Customer Photos Section -->
+        {{ $images := readDir "static/images/customer_testimonials" }}
+        {{ if $images }}
+        <div class="customer-photos-section">
+            <div class="section-header text-center mb-4">
+                <h3 class="testimonial-subtitle" style="color: #8B0000;">Customer Photos</h3>
+            </div>
+            <div class="row g-4">
+                {{ range $images }}
+                    {{ if (and (not .IsDir) (or (in (lower .Name) ".jpg") (in (lower .Name) ".jpeg") (in (lower .Name) ".png"))) }}
+                        <div class="col-md-6">
+                            <div class="feature-card">
+                                <div class="card h-100 shadow">
+                                    <div class="card-body p-0">
+                                        <img src="/images/customer_testimonials/{{ .Name }}" 
+                                             class="img-fluid w-100" 
+                                             alt="Customer Review"
+                                             style="object-fit: cover; height: 300px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {{ end }}
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

@@ -1,0 +1,13 @@
+# Hugo default output directory
+/public/
+
+# Node modules if you're using any npm packages
+node_modules/
+
+## OS Files
+.DS_Store
+Thumbs.db
+
+# Hugo resource directory
+resources/
+.hugo_build.lock
