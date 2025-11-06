@@ -1,0 +1,81 @@
+{{ define "main" }}
+<div class="container my-5">
+    <div class="content-section">
+        <div class="card shadow">
+            <div class="card-body">
+                <h2 class="section-title text-center mb-4" style="color: #8B0000;">Contact Us</h2>
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <form name="contact" method="POST" data-netlify="true" action="/thank-you/" class="needs-validation" netlify-honeypot="bot-field" novalidate>
+                            <input type="hidden" name="form-name" value="contact">
+                            <p class="d-none">
+                                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                            </p>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name (required)</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                                <div class="invalid-feedback">
+                                    Please provide your name.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone Number (required)</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid phone number.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email (required)</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid email address.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Address (required)</label>
+                                <input type="text" class="form-control" id="address" name="address" required>
+                                <div class="invalid-feedback">
+                                    Please provide your address.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="square_footage" class="form-label">Square Footage (A Basketball Court is 5k sqft)</label>
+                                <input type="number" class="form-control" id="square_footage" name="square_footage" 
+                                       placeholder="Enter approximate square footage">
+                                <small class="text-muted">Please provide an estimate of your lawn's square footage</small>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" name="message" rows="4" 
+                                          placeholder="Tell us about your lawn care needs"></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary" style="background-color: #8B0000; border-color: #8B0000;">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Form validation script
+(function () {
+    'use strict'
+    var forms = document.querySelectorAll('.needs-validation')
+    Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+        })
+})()
+</script>
+{{ end }}
