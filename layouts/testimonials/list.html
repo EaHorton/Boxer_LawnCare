@@ -58,6 +58,40 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="testimonial-card">
+                        <div class="card h-100 shadow">
+                            <div class="card-body">
+                                <div class="d-flex gap-1 mb-2">
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                </div>
+                                <p class="testimonial-text">"Jay worked with us middle of summer to aerate our Bermuda lawn and the results following have been amazing. The lawn is now lush, vibrant green and growing rapidly. Jay's expertise when it comes to lawn care is unmatched. As far as aeration he was quick yet thorough showing his efficiency and showed up exactly when he said he would. Would recommend 10/10 5 stars for anyone looking to level up their lawn through fertilizers, herbicides aeration and more"</p>
+                                <p class="testimonial-author">- Justin Ford</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="testimonial-card">
+                        <div class="card h-100 shadow">
+                            <div class="card-body">
+                                <div class="d-flex gap-1 mb-2">
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                </div>
+                                <p class="testimonial-text">"I'm so glad I made the switch from one of the big national lawn care companies to a local business that actually cares. From day one, Jay has been reliable, knowledgeable, and invested in the health of my lawn. You can tell he takes pride in his work. He explains what he's applying and why, and he's always open to questions or concerns. My lawn has never looked better! If you're tired of being just another number with the big brands, I highly recommend supporting a local expert who truly values his customers. You won't regret it."</p>
+                                <p class="testimonial-author">- Stuart Gillies</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="text-center mt-4">
@@ -69,33 +103,6 @@
             </div>
         </div>
 
-        <!-- Customer Photos Section -->
-        {{ $images := readDir "static/images/customer_testimonials" }}
-        {{ if $images }}
-        <div class="customer-photos-section">
-            <div class="section-header text-center mb-4">
-                <h3 class="testimonial-subtitle" style="color: #8B0000;">Customer Photos</h3>
-            </div>
-            <div class="row g-4">
-                {{ range $images }}
-                    {{ if (and (not .IsDir) (or (in (lower .Name) ".jpg") (in (lower .Name) ".jpeg") (in (lower .Name) ".png"))) }}
-                        <div class="col-md-6">
-                            <div class="feature-card">
-                                <div class="card h-100 shadow">
-                                    <div class="card-body p-0">
-                                        <img src="/images/customer_testimonials/{{ .Name }}" 
-                                             class="img-fluid w-100" 
-                                             alt="Customer Review"
-                                             style="object-fit: cover; height: 300px;">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    {{ end }}
-                {{ end }}
-            </div>
-        </div>
-        {{ end }}
     </div>
 </div>
 {{ end }}

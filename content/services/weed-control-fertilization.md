@@ -2,6 +2,7 @@
 title: "Weed Control & Fertilization"
 date: 2025-11-05
 draft: false
+weight: 1
 ---
 
 At Boxer Lawn & Landscape, we understand the importance of maintaining a healthy and beautiful lawn. Our licensed professional provides comprehensive weed control and fertilization services tailored to meet the unique needs of your landscape.

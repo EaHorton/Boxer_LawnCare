@@ -4,7 +4,7 @@
         <div class="card-body">
             <h2 class="card-title">{{ .Title }}</h2>
             <div class="row">
-                {{ range .Pages }}
+                {{ range (.Pages.ByWeight) }}
                 <div class="col-12">
                     <div class="service-card">
                         <div class="card-body">
@@ -76,7 +76,6 @@
                                     {{ end }}
                                 {{ end }}
                             {{ end }}
-                            <a href="{{ .RelPermalink }}" class="btn btn-primary mt-3">Learn More</a>
                         </div>
                     </div>
                 </div>
