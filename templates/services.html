@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <h2 class="card-title">Our Services</h2>
+        <div class="row">
+            {% for service in services %}
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="card-title fw-bold">{{ service.title }}</h3>
+                        {% for paragraph in service.content.split('\n\n') %}
+                            {% if paragraph.strip() %}
+                                {% if 'The benefits of core aeration include:' in paragraph %}
+                                    <p class="card-text">{{ paragraph }}</p>
+                                    <ul class="list-unstyled mt-3">
+                                {% elif ':' in paragraph and 'The benefits' not in paragraph and service.title == 'Core Aeration' %}
+                                    <li class="mb-2">
+                                        <strong>{{ paragraph.split(':')[0] }}:</strong>
+                                        {{ paragraph.split(':')[1] }}
+                                    </li>
+                                {% else %}
+                                    {% if service.title == 'Core Aeration' and loop.index > 7 %}
+                                        </ul>
+                                        <p class="card-text mt-3">{{ paragraph }}</p>
+                                    {% else %}
+                                        {% if paragraph.startswith('Weed Control:') or paragraph.startswith('Fertilization:') %}
+                                            <p class="card-text">
+                                                <strong>{{ paragraph.split(':')[0] }}:</strong>
+                                                {{ paragraph.split(':')[1] }}
+                                            </p>
+                                        {% else %}
+                                            <p class="card-text">{{ paragraph }}</p>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        {% if service.title == 'Core Aeration' %}
+                            <div class="mt-4">
+                                <figure class="text-center">
+                                    <img src="{{ url_for('static', filename='images/aeration-diagram.png') }}" 
+                                         alt="Core Aeration Process Diagram" 
+                                         class="img-fluid rounded shadow-sm"
+                                         style="width: 100%; max-width: 800px; height: auto; margin: 0 auto; display: block;"
+                                         onerror="console.log('Failed to load image'); this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                    <div style="display: none; color: red; margin-top: 10px;">Error loading diagram</div>
+                                    <figcaption class="mt-2 text-muted">
+                                        Visual representation of the core aeration process and its benefits
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="col-12">
+                <p class="text-center text-muted">No services available</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

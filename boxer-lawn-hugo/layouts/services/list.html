@@ -1,0 +1,62 @@
+{{ define "main" }}
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">{{ .Title }}</h2>
+            <div class="row">
+                {{ range .Pages }}
+                <div class="col-12">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="card-title fw-bold">{{ .Title }}</h3>
+                            {{ $content := .Content }}
+                            {{ if eq .Title "Core Aeration" }}
+                                {{ $paragraphs := split .Content "\n\n" }}
+                                {{ range $index, $paragraph := $paragraphs }}
+                                    {{ if in $paragraph "The benefits of core aeration include:" }}
+                                        <p class="card-text">{{ $paragraph | safeHTML }}</p>
+                                        <ul class="list-unstyled mt-3">
+                                    {{ else if and (in $paragraph ":") (not (in $paragraph "The benefits")) }}
+                                        <li class="mb-2">
+                                            <strong>{{ index (split $paragraph ":") 0 }}:</strong>
+                                            {{ index (split $paragraph ":") 1 | safeHTML }}
+                                        </li>
+                                    {{ else }}
+                                        </ul>
+                                        <p class="card-text mt-3">{{ $paragraph | safeHTML }}</p>
+                                    {{ end }}
+                                {{ end }}
+                                <div class="mt-4">
+                                    <figure class="text-center">
+                                        <img src="/images/aeration-diagram.png" 
+                                             alt="Core Aeration Process Diagram" 
+                                             class="img-fluid rounded shadow-sm"
+                                             style="width: 100%; max-width: 800px; height: auto; margin: 0 auto; display: block;">
+                                        <figcaption class="mt-2 text-muted">
+                                            Visual representation of the core aeration process and its benefits
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            {{ else }}
+                                {{ $paragraphs := split .Content "\n\n" }}
+                                {{ range $paragraphs }}
+                                    {{ if or (hasPrefix . "Weed Control:") (hasPrefix . "Fertilization:") }}
+                                        <p class="card-text">
+                                            <strong>{{ index (split . ":") 0 }}:</strong>
+                                            {{ index (split . ":") 1 | safeHTML }}
+                                        </p>
+                                    {{ else }}
+                                        <p class="card-text">{{ . | safeHTML }}</p>
+                                    {{ end }}
+                                {{ end }}
+                            {{ end }}
+                            <a href="{{ .RelPermalink }}" class="btn btn-primary mt-3">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}
