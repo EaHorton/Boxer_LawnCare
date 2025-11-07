@@ -1,4 +1,4 @@
-{{- $path := .path -}}
+{{- $path := .path | default .src -}}
 {{- if not (hasPrefix $path "http") -}}
   {{- if hasPrefix $path "/" -}}
     {{- $path = (print .Site.BaseURL (strings.TrimPrefix "/" $path)) -}}

@@ -54,12 +54,10 @@
                                 {{ end }}
                                 <div class="mt-4">
                                     <figure class="text-center">
-                                        {{ partial "image.html" (dict 
-                                            "src" "images/aeration-diagram.png"
-                                            "alt" "Core Aeration Process Diagram"
-                                            "class" "img-fluid rounded shadow-sm"
-                                            "style" "width: 100%; max-width: 800px; height: auto; margin: 0 auto; display: block;"
-                                            "Site" .Site) }}
+                                        <img src="{{ .Site.BaseURL }}images/aeration-diagram.png" 
+                                             alt="Core Aeration Process Diagram" 
+                                             class="img-fluid rounded shadow-sm"
+                                             style="width: 100%; max-width: 800px; height: auto; margin: 0 auto; display: block;">
                                         <figcaption class="mt-2 text-muted">
                                             Visual representation of the core aeration process and its benefits
                                         </figcaption>
