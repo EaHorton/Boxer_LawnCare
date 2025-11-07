@@ -6,11 +6,8 @@
                 <h2 class="section-title text-center mb-4" style="color: #8B0000;">Contact Us</h2>
                 <div class="row">
                     <div class="col-md-6 mx-auto">
-                        <form name="contact" method="POST" data-netlify="true" action="/thank-you/" class="needs-validation" netlify-honeypot="bot-field" novalidate>
-                            <input type="hidden" name="form-name" value="contact">
-                            <p class="d-none">
-                                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-                            </p>
+                        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="needs-validation" novalidate>
+                            <input type="hidden" name="_next" value="https://eahorton.github.io/Boxer_LawnCare/thank-you/">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name (required)</label>
                                 <input type="text" class="form-control" id="name" name="name" required>
