@@ -203,6 +203,7 @@
             </button>
             <div class="collapse navbar-collapse" id="mobileNav">
                 <ul class="navbar-nav ms-auto">
+                    {{ $currentPage := . }}
                     {{ range .Site.Menus.main }}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ .URL }}">
@@ -224,10 +225,12 @@
                 </div>
                 <h3 class="text-white mb-4 text-center">Boxer Lawn & Landscape</h3>
                 <nav>
+                    {{ $currentPage := . }}
                     {{ range .Site.Menus.main }}
+                    {{ $name := .Name }}
                     <a href="{{ .URL }}">
-                        <i class="fas fa-{{ if eq .Name "Home" }}home{{ else if eq .Name "Services" }}list{{ else if eq .Name "Gallery" }}images{{ else if eq .Name "Testimonials" }}comments{{ else if eq .Name "Contact" }}envelope{{ else }}info{{ end }}"></i>
-                        {{ .Name }}
+                        <i class="fas fa-{{ if eq $name "Home" }}home{{ else if eq $name "Services" }}list{{ else if eq $name "Gallery" }}images{{ else if eq $name "Testimonials" }}comments{{ else if eq $name "Contact" }}envelope{{ else }}info{{ end }}"></i>
+                        {{ $name }}
                     </a>
                     {{ end }}
                 </nav>
