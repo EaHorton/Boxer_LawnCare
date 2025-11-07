@@ -1,14 +1,10 @@
 ---
-title: Contact
-type: contact
+title: Contact Us
+layout: contact
 menu:
   main:
     weight: 5
 ---
-
-<div class="row">
-    <div class="col-md-6 mx-auto">
-        <form name="contact" method="POST" data-netlify="true" action="/thank-you/" class="needs-validation" netlify-honeypot="bot-field" novalidate>
             <input type="hidden" name="form-name" value="contact">
             <p class="d-none">
                 <label>Don't fill this out if you're human: <input name="bot-field" /></label>
