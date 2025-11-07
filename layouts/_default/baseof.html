@@ -192,8 +192,8 @@
     <!-- Mobile Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top d-lg-none" style="background-color: #8B0000;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">
-                <img src="/images/boxer-mascot.png" 
+            <a class="navbar-brand" href="{{ .Site.BaseURL }}">
+                <img src="{{ .Site.BaseURL }}images/boxer-mascot.png" 
                      alt="Boxer Mascot" 
                      style="height: 40px; width: auto;">
                 Boxer Lawn & Landscape
@@ -220,7 +220,7 @@
             <!-- Sidebar (visible on desktop only) -->
             <div class="col-lg-3 sidebar d-none d-lg-block">
                 <div class="text-center mb-4">
-                    <img src="/images/boxer-mascot.png" alt="Boxer Mascot" style="max-width: 250px; padding: 20px;" onerror="console.log('Error loading mascot image');">
+                    <img src="{{ .Site.BaseURL }}images/boxer-mascot.png" alt="Boxer Mascot" style="max-width: 250px; padding: 20px;" onerror="console.log('Error loading mascot image');">
                 </div>
                 <h3 class="text-white mb-4 text-center">Boxer Lawn & Landscape</h3>
                 <nav>
