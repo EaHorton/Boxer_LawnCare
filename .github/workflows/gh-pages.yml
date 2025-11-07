@@ -1,24 +1,44 @@
-name: Deploy Hugo site to Pagesname: GitHub Pagesname: GitHub Pagesname: GitHub Pagesname: GitHub Pages
-
-
+name: GitHub Pagesname: Deploy Hugo site to Pagesname: GitHub Pagesname: GitHub Pagesname: GitHub Pagesname: GitHub Pages
 
 on:
 
   push:
 
-    branches: ["main"]on:
+    branches:
 
-  workflow_dispatch:
+      - mainon:
 
-  push:
+jobs:
 
-permissions:
+  deploy:  push:
 
-  contents: read    branches:on:
+    runs-on: ubuntu-latest
 
-  pages: write
+    steps:    branches: ["main"]on:
 
-  id-token: write      - main
+      - uses: actions/checkout@v3
+
+      - uses: peaceiris/actions-hugo@v2  workflow_dispatch:
+
+        with:
+
+          hugo-version: '0.152.2'  push:
+
+          extended: true
+
+      - name: Buildpermissions:
+
+        run: hugo --minify
+
+      - name: Deploy  contents: read    branches:on:
+
+        uses: peaceiris/actions-gh-pages@v3
+
+        with:  pages: write
+
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+          publish_dir: ./public  id-token: write      - main
 
 
 
