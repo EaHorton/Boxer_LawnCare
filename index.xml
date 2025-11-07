@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Welcome to Boxer Lawn &amp; Landscape on Boxer Lawn &amp; Landscape</title><link>https://eahorton.github.io/Boxer_LawnCare/</link><description>Recent content in Welcome to Boxer Lawn &amp; Landscape on Boxer Lawn &amp; Landscape</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 05 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://eahorton.github.io/Boxer_LawnCare/index.xml" rel="self" type="application/rss+xml"/><item><title>Weed Control &amp; Fertilization</title><link>https://eahorton.github.io/Boxer_LawnCare/services/weed-control-fertilization/</link><pubDate>Wed, 05 Nov 2025 00:00:00 +0000</pubDate><guid>https://eahorton.github.io/Boxer_LawnCare/services/weed-control-fertilization/</guid><description>&lt;p&gt;At Boxer Lawn &amp;amp; Landscape, we understand the importance of maintaining a healthy and beautiful lawn. Our licensed professional provides comprehensive weed control and fertilization services tailored to meet the unique needs of your landscape.&lt;/p&gt;
+&lt;h2 id="weed-control"&gt;Weed Control&lt;/h2&gt;
+&lt;p&gt;Our licensed technician uses safe and effective methods to target and eliminate unwanted weeds, ensuring they don&amp;rsquo;t compete with your lawn&amp;rsquo;s grass for essential nutrients. We carefully select treatments that are appropriate for your specific lawn type, applying them at the right time to maximize results while protecting your plants, pets, and the environment.&lt;/p&gt;</description></item><item><title>Core Aeration</title><link>https://eahorton.github.io/Boxer_LawnCare/services/core-aeration/</link><pubDate>Wed, 05 Nov 2025 00:00:00 +0000</pubDate><guid>https://eahorton.github.io/Boxer_LawnCare/services/core-aeration/</guid><description>&lt;p&gt;Core aeration is a highly beneficial lawn care practice that involves removing small plugs of soil from your lawn to allow air, water, and nutrients to reach the root zone more effectively. This process helps alleviate soil compaction, which can limit root growth and prevent proper water drainage.&lt;/p&gt;
+&lt;p&gt;The benefits of core aeration include:&lt;/p&gt;
+&lt;p&gt;Improved Root Growth: With increased access to air and nutrients, your grass roots can grow deeper and stronger, leading to a healthier lawn.&lt;/p&gt;</description></item><item><title>Contact</title><link>https://eahorton.github.io/Boxer_LawnCare/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eahorton.github.io/Boxer_LawnCare/contact/</guid><description>&lt;div class="row"&gt;
+ &lt;div class="col-md-6 mx-auto"&gt;
+ &lt;form name="contact" method="POST" data-netlify="true" action="https://eahorton.github.io/Boxer_LawnCare/thank-you/" class="needs-validation" netlify-honeypot="bot-field" novalidate&gt;
+ &lt;input type="hidden" name="form-name" value="contact"&gt;
+ &lt;p class="d-none"&gt;
+ &lt;label&gt;Don't fill this out if you're human: &lt;input name="bot-field" /&gt;&lt;/label&gt;
+ &lt;/p&gt;
+ &lt;div class="mb-3"&gt;
+ &lt;label for="name" class="form-label"&gt;Name (required)&lt;/label&gt;
+ &lt;input type="text" class="form-control" id="name" name="name" required&gt;
+ &lt;div class="invalid-feedback"&gt;
+ Please provide your name.
+ &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class="mb-3"&gt;
+ &lt;label for="phone" class="form-label"&gt;Phone Number (required)&lt;/label&gt;
+ &lt;input type="tel" class="form-control" id="phone" name="phone" required&gt;
+ &lt;div class="invalid-feedback"&gt;
+ Please provide a valid phone number.
+ &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class="mb-3"&gt;
+ &lt;label for="email" class="form-label"&gt;Email (required)&lt;/label&gt;
+ &lt;input type="email" class="form-control" id="email" name="email" required&gt;
+ &lt;div class="invalid-feedback"&gt;
+ Please provide a valid email address.
+ &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class="mb-3"&gt;
+ &lt;label for="address" class="form-label"&gt;Address (required)&lt;/label&gt;
+ &lt;input type="text" class="form-control" id="address" name="address" required&gt;
+ &lt;div class="invalid-feedback"&gt;
+ Please provide your address.
+ &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class="mb-3"&gt;
+ &lt;label for="square_footage" class="form-label"&gt;Square Footage (A Basketball Court is 5k sqft)&lt;/label&gt;
+ &lt;input type="number" class="form-control" id="square_footage" name="square_footage" 
+ placeholder="Enter approximate square footage"&gt;
+ &lt;small class="text-muted"&gt;Please provide an estimate of your lawn's square footage&lt;/small&gt;
+ &lt;/div&gt;
+ &lt;div class="mb-3"&gt;
+ &lt;label for="message" class="form-label"&gt;Message&lt;/label&gt;
+ &lt;textarea class="form-control" id="message" name="message" rows="5" 
+ placeholder="Additional details or questions..."&gt;&lt;/textarea&gt;
+ &lt;/div&gt;
+ &lt;button type="submit" class="btn btn-primary custom-button"&gt;Send Message&lt;/button&gt;
+ &lt;/form&gt;
+ &lt;/div&gt;
+ &lt;div class="col-md-6"&gt;
+ &lt;div class="contact-info-card"&gt;
+ &lt;div class="card h-100 shadow"&gt;
+ &lt;div class="card-body"&gt;
+ &lt;h4 class="card-title mb-4" style="color: #8B0000;"&gt;Contact Information&lt;/h4&gt;
+ &lt;div class="d-flex align-items-center mb-3"&gt;
+ &lt;i class="fas fa-phone me-3" style="color: #8B0000;"&gt;&lt;/i&gt;
+ &lt;p class="mb-0"&gt;Phone: (864) 501-3815&lt;/p&gt;</description></item><item><title>Thank You</title><link>https://eahorton.github.io/Boxer_LawnCare/thank-you/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://eahorton.github.io/Boxer_LawnCare/thank-you/</guid><description/></item></channel></rss>
