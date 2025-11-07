@@ -1,41 +1,78 @@
-name: GitHub Pagesname: GitHub Pages
+name: GitHub Pagesname: GitHub Pagesname: GitHub Pages
 
 
 
-on:on:
+on:
 
-  push:  push:
+  push:
 
-    branches:    branches:
+    branches:on:on:
+
+      - main
+
+  pull_request:  push:  push:
+
+
+
+permissions:    branches:    branches:
+
+  contents: write
 
       - main  # Set a branch to deploy      - main  # Set a branch to deploy
 
-  pull_request:  pull_request:
+jobs:
+
+  deploy:  pull_request:  pull_request:
+
+    runs-on: ubuntu-22.04
+
+    concurrency:
+
+      group: ${{ github.workflow }}-${{ github.ref }}
+
+    steps:permissions:permissions:
+
+      - uses: actions/checkout@v3
+
+        with:  contents: write  contents: write
+
+          submodules: true
+
+          fetch-depth: 0
 
 
 
-permissions:permissions:
+      - name: Setup Hugojobs:jobs:
 
-  contents: write  contents: write
+        uses: peaceiris/actions-hugo@v2
+
+        with:  deploy:  deploy:
+
+          hugo-version: '0.152.2'
+
+          extended: true    runs-on: ubuntu-22.04    runs-on: ubuntu-22.04
 
 
 
-jobs:jobs:
+      - name: Build    concurrency:    concurrency:
 
-  deploy:  deploy:
-
-    runs-on: ubuntu-22.04    runs-on: ubuntu-22.04
-
-    concurrency:    concurrency:
+        run: hugo --minify
 
       group: ${{ github.workflow }}-${{ github.ref }}      group: ${{ github.workflow }}-${{ github.ref }}
 
-    steps:    steps:
+      - name: Deploy
 
-      - uses: actions/checkout@v3      - uses: actions/checkout@v3
+        uses: peaceiris/actions-gh-pages@v3    steps:    steps:
 
-        with:        with:
+        if: github.ref == 'refs/heads/main'
 
+        with:      - uses: actions/checkout@v3      - uses: actions/checkout@v3
+
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+          publish_dir: ./public        with:        with:
+
+          force_orphan: true
           submodules: true  # Fetch Hugo themes (true OR recursive)          submodules: true  # Fetch Hugo themes (true OR recursive)
 
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
