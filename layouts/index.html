@@ -2,17 +2,17 @@
 <div class="container">
     <!-- Hero Section -->
     <div class="card mb-4 border-0 bg-light">
-        <div class="card-body py-5">
+        <div class="card-body py-4 py-md-5">
             <div class="row align-items-center">
                 <div class="col-md-8">
-                    <h1 class="display-2 display-md-1 mb-3" style="color: #8B0000; font-weight: 600; font-size: calc(2rem + 3vw);">Welcome to Boxer Lawn & Landscape</h1>
-                    <h2 class="h1 mb-4" style="color: #A52A2A; font-size: calc(1.5rem + 1vw);">Professional Lawn Care Services</h2>
-                    <p class="lead mb-4" style="color: #B22222; font-size: calc(1.1rem + 0.5vw);">Your trusted partner in maintaining beautiful and healthy lawns in Upstate South Carolina. We provide expert care with attention to detail that your lawn deserves.</p>
-                    <div class="d-flex gap-3">
-                        <a href="{{ "services" | relURL }}" class="btn btn-primary btn-lg" style="background-color: #8B0000; border: none; box-shadow: 0 2px 4px rgba(139,0,0,0.2);">
+                    <h1 class="display-2 display-md-1 mb-3" style="color: #8B0000; font-weight: 600; font-size: clamp(1.8rem, 5vw, 3rem);">Welcome to Boxer Lawn & Landscape</h1>
+                    <h2 class="h1 mb-4" style="color: #A52A2A; font-size: clamp(1.3rem, 3vw, 2rem);">Professional Lawn Care Services</h2>
+                    <p class="lead mb-4" style="color: #B22222; font-size: clamp(1rem, 2vw, 1.25rem); max-width: 95%;">Your trusted partner in maintaining beautiful and healthy lawns in Upstate South Carolina. We provide expert care with attention to detail that your lawn deserves.</p>
+                    <div class="d-flex flex-column flex-sm-row gap-3">
+                        <a href="{{ "services" | relURL }}" class="btn btn-primary btn-lg flex-fill" style="background-color: #8B0000; border: none; box-shadow: 0 2px 4px rgba(139,0,0,0.2);">
                             <i class="fas fa-leaf me-2"></i>Explore Our Services
                         </a>
-                        <a href="{{ "contact/" | relURL }}" class="btn btn-outline-primary btn-lg" style="border-color: #8B0000; color: #8B0000;">
+                        <a href="{{ "contact/" | relURL }}" class="btn btn-outline-primary btn-lg flex-fill" style="border-color: #8B0000; color: #8B0000;">
                             <i class="fas fa-phone me-2"></i>Get a Quote
                         </a>
                     </div>
@@ -37,34 +37,34 @@
     <div class="row g-4 mb-5">
         <div class="col-md-4">
             <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body text-center">
+                <div class="card-body text-center p-4">
                     <div class="mb-3">
                         <i class="fas fa-certificate fa-2x" style="color: #8B0000;"></i>
                     </div>
                     <h3 class="h4 mb-3" style="color: #8B0000;">Licensed Professional</h3>
-                    <p class="text-muted">Expert care from a licensed technician ensuring the highest quality service.</p>
+                    <p class="text-muted px-2">Expert care from a licensed technician ensuring the highest quality service.</p>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body text-center">
+                <div class="card-body text-center p-4">
                     <div class="mb-3">
                         <i class="fas fa-leaf fa-2x" style="color: #8B0000;"></i>
                     </div>
                     <h3 class="h4 mb-3" style="color: #8B0000;">Customized Care</h3>
-                    <p class="text-muted">Tailored lawn care programs designed for your specific needs.</p>
+                    <p class="text-muted px-2">Tailored lawn care programs designed for your specific needs.</p>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body text-center">
+                <div class="card-body text-center p-4">
                     <div class="mb-3">
                         <i class="fas fa-shield-alt fa-2x" style="color: #8B0000;"></i>
                     </div>
                     <h3 class="h4 mb-3" style="color: #8B0000;">Satisfaction Guaranteed</h3>
-                    <p class="text-muted">We stand behind our work with a commitment to your satisfaction.</p>
+                    <p class="text-muted px-2">We stand behind our work with a commitment to your satisfaction.</p>
                 </div>
             </div>
         </div>
@@ -72,34 +72,34 @@
 
     <!-- Services Highlights -->
     <div class="card mb-5 border-0 bg-white shadow-sm">
-        <div class="card-body p-5">
-            <h2 class="text-center mb-5" style="color: #8B0000;">Our Core Services</h2>
+        <div class="card-body p-4 p-sm-5">
+            <h2 class="text-center mb-4 mb-sm-5" style="color: #8B0000; font-size: clamp(1.5rem, 3vw, 2rem);">Our Core Services</h2>
             <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="text-center">
+                <div class="col-6 col-lg-3">
+                    <div class="text-center px-2">
                         <i class="fas fa-spray-can fa-3x mb-3" style="color: #8B0000;"></i>
-                        <h4 class="h5" style="color: #8B0000;">Weed Control</h4>
+                        <h4 class="h5" style="color: #8B0000; font-size: clamp(1rem, 2.5vw, 1.25rem);">Weed Control</h4>
                         <p class="text-muted small">Effective treatment for a weed-free lawn</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="text-center">
+                <div class="col-6 col-lg-3">
+                    <div class="text-center px-2">
                         <i class="fas fa-seedling fa-3x mb-3" style="color: #8B0000;"></i>
-                        <h4 class="h5" style="color: #8B0000;">Fertilization</h4>
+                        <h4 class="h5" style="color: #8B0000; font-size: clamp(1rem, 2.5vw, 1.25rem);">Fertilization</h4>
                         <p class="text-muted small">Nutrient-rich care for healthy growth</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="text-center">
+                <div class="col-6 col-lg-3">
+                    <div class="text-center px-2">
                         <i class="fas fa-bug fa-3x mb-3" style="color: #8B0000;"></i>
-                        <h4 class="h5" style="color: #8B0000;">Pest Control</h4>
+                        <h4 class="h5" style="color: #8B0000; font-size: clamp(1rem, 2.5vw, 1.25rem);">Pest Control</h4>
                         <p class="text-muted small">Armyworm prevention and control</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="text-center">
+                <div class="col-6 col-lg-3">
+                    <div class="text-center px-2">
                         <i class="fas fa-shapes fa-3x mb-3" style="color: #8B0000;"></i>
-                        <h4 class="h5" style="color: #8B0000;">Core Aeration</h4>
+                        <h4 class="h5" style="color: #8B0000; font-size: clamp(1rem, 2.5vw, 1.25rem);">Core Aeration</h4>
                         <p class="text-muted small">To improve root growth and soil drainage</p>
                     </div>
                 </div>
@@ -109,10 +109,10 @@
 
     <!-- Call to Action -->
     <div class="card text-white border-0" style="background: linear-gradient(to right, #8B0000, #FF0000);">
-        <div class="card-body p-5 text-center">
-            <h2 class="mb-4">Ready to Transform Your Lawn?</h2>
-            <p class="lead mb-4">Contact us today for a free consultation and quote</p>
-            <a href="{{ "contact/" | relURL }}" class="btn btn-light btn-lg px-5">
+        <div class="card-body p-4 p-sm-5 text-center">
+            <h2 class="mb-3 mb-sm-4" style="font-size: clamp(1.5rem, 3vw, 2rem);">Ready to Transform Your Lawn?</h2>
+            <p class="lead mb-4" style="font-size: clamp(1.1rem, 2vw, 1.25rem);">Contact us today for a free consultation and quote</p>
+            <a href="{{ "contact/" | relURL }}" class="btn btn-light btn-lg px-4 px-sm-5">
                 <i class="fas fa-envelope me-2"></i>Get Started
             </a>
         </div>
