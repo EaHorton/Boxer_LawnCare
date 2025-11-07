@@ -1,9 +1,6 @@
 ---
 title: Contact Us
 layout: contact
-menu:
-  main:
-    weight: 5
 ---
             <input type="hidden" name="form-name" value="contact">
             <p class="d-none">
