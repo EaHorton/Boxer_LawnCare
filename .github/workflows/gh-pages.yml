@@ -1,4 +1,4 @@
-name: GitHub Pagesname: GitHub Pagesname: GitHub Pagesname: GitHub Pages
+name: Deploy Hugo site to Pagesname: GitHub Pagesname: GitHub Pagesname: GitHub Pagesname: GitHub Pages
 
 
 
@@ -6,53 +6,107 @@ on:
 
   push:
 
-    branches:on:
+    branches: ["main"]on:
 
-      - main
+  workflow_dispatch:
 
-  pull_request:  push:
+  push:
+
+permissions:
+
+  contents: read    branches:on:
+
+  pages: write
+
+  id-token: write      - main
 
 
 
-permissions:    branches:on:on:
+concurrency:  pull_request:  push:
 
-  contents: write
+  group: "pages"
 
-      - main
+  cancel-in-progress: false
 
-jobs:
 
-  deploy:  pull_request:  push:  push:
 
-    runs-on: ubuntu-22.04
+defaults:permissions:    branches:on:on:
+
+  run:
+
+    shell: bash  contents: write
+
+
+
+jobs:      - main
+
+  build:
+
+    runs-on: ubuntu-latestjobs:
 
     steps:
 
-      - uses: actions/checkout@v3
+      - name: Checkout  deploy:  pull_request:  push:  push:
 
-        with:permissions:    branches:    branches:
+        uses: actions/checkout@v3
+
+        with:    runs-on: ubuntu-22.04
 
           submodules: true
 
-          fetch-depth: 0  contents: write
+          fetch-depth: 0    steps:
 
 
 
-      - name: Setup Hugo      - main  # Set a branch to deploy      - main  # Set a branch to deploy
+      - name: Setup Hugo      - uses: actions/checkout@v3
 
         uses: peaceiris/actions-hugo@v2
 
-        with:jobs:
+        with:        with:permissions:    branches:    branches:
 
           hugo-version: '0.152.2'
 
-          extended: true  deploy:  pull_request:  pull_request:
+          extended: true          submodules: true
 
 
 
-      - name: Build    runs-on: ubuntu-22.04
+      - name: Build with Hugo          fetch-depth: 0  contents: write
 
-        working-directory: ./
+        run: |
+
+          hugo --minify
+
+
+
+      - name: Upload artifact      - name: Setup Hugo      - main  # Set a branch to deploy      - main  # Set a branch to deploy
+
+        uses: actions/upload-pages-artifact@v2
+
+        with:        uses: peaceiris/actions-hugo@v2
+
+          path: ./public
+
+        with:jobs:
+
+  deploy:
+
+    environment:          hugo-version: '0.152.2'
+
+      name: github-pages
+
+      url: ${{ steps.deployment.outputs.page_url }}          extended: true  deploy:  pull_request:  pull_request:
+
+    runs-on: ubuntu-latest
+
+    needs: build
+
+    steps:
+
+      - name: Deploy to GitHub Pages      - name: Build    runs-on: ubuntu-22.04
+
+        id: deployment
+
+        uses: actions/deploy-pages@v2        working-directory: ./
 
         run: |    concurrency:
 
