@@ -1,4 +1,4 @@
-name: GitHub Pagesname: GitHub Pagesname: GitHub Pages
+name: GitHub Pagesname: GitHub Pagesname: GitHub Pagesname: GitHub Pages
 
 
 
@@ -6,37 +6,75 @@ on:
 
   push:
 
-    branches:on:on:
+    branches:on:
 
       - main
 
-  pull_request:  push:  push:
+  pull_request:  push:
 
 
 
-permissions:    branches:    branches:
+permissions:    branches:on:on:
 
   contents: write
 
-      - main  # Set a branch to deploy      - main  # Set a branch to deploy
+      - main
 
 jobs:
 
-  deploy:  pull_request:  pull_request:
+  deploy:  pull_request:  push:  push:
 
     runs-on: ubuntu-22.04
 
-    concurrency:
-
-      group: ${{ github.workflow }}-${{ github.ref }}
-
-    steps:permissions:permissions:
+    steps:
 
       - uses: actions/checkout@v3
 
-        with:  contents: write  contents: write
+        with:permissions:    branches:    branches:
 
           submodules: true
+
+          fetch-depth: 0  contents: write
+
+
+
+      - name: Setup Hugo      - main  # Set a branch to deploy      - main  # Set a branch to deploy
+
+        uses: peaceiris/actions-hugo@v2
+
+        with:jobs:
+
+          hugo-version: '0.152.2'
+
+          extended: true  deploy:  pull_request:  pull_request:
+
+
+
+      - name: Build    runs-on: ubuntu-22.04
+
+        working-directory: ./
+
+        run: |    concurrency:
+
+          pwd
+
+          hugo --minify      group: ${{ github.workflow }}-${{ github.ref }}
+
+
+
+      - name: Deploy    steps:permissions:permissions:
+
+        uses: peaceiris/actions-gh-pages@v3
+
+        if: github.ref == 'refs/heads/main'      - uses: actions/checkout@v3
+
+        with:
+
+          github_token: ${{ secrets.GITHUB_TOKEN }}        with:  contents: write  contents: write
+
+          publish_dir: ./public
+
+          force_orphan: true          submodules: true
 
           fetch-depth: 0
 
