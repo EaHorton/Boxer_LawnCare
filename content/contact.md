@@ -1,5 +1,5 @@
 ---
-title: Contact Us
+title: Contact
 layout: contact
 ---
             <input type="hidden" name="form-name" value="contact">
