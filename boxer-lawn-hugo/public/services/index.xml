@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Our Services on Boxer Lawn &amp; Landscape</title>
-    <link>http://localhost:61217/services/</link>
+    <link>https://boxerlawn.com/services/</link>
     <description>Recent content in Our Services on Boxer Lawn &amp; Landscape</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 05 Nov 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:61217/services/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://boxerlawn.com/services/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Core Aeration</title>
-      <link>http://localhost:61217/services/core-aeration/</link>
+      <link>https://boxerlawn.com/services/core-aeration/</link>
       <pubDate>Wed, 05 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:61217/services/core-aeration/</guid>
+      <guid>https://boxerlawn.com/services/core-aeration/</guid>
       <description>&lt;p&gt;Core aeration is a highly beneficial lawn care practice that involves removing small plugs of soil from your lawn to allow air, water, and nutrients to reach the root zone more effectively. This process helps alleviate soil compaction, which can limit root growth and prevent proper water drainage.&lt;/p&gt;&#xA;&lt;h2 id=&#34;benefits-of-core-aeration-include&#34;&gt;Benefits of core aeration include:&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Improved Root Growth:&lt;/strong&gt; With increased access to air and nutrients, your grass roots can grow deeper and stronger, leading to a healthier lawn.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Weed Control &amp; Fertilization</title>
-      <link>http://localhost:61217/services/weed-control-fertilization/</link>
+      <link>https://boxerlawn.com/services/weed-control-fertilization/</link>
       <pubDate>Wed, 05 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:61217/services/weed-control-fertilization/</guid>
+      <guid>https://boxerlawn.com/services/weed-control-fertilization/</guid>
       <description>&lt;p&gt;At Boxer Lawn &amp;amp; Landscape, we understand the importance of maintaining a healthy and beautiful lawn. Our licensed professional provides comprehensive weed control and fertilization services tailored to meet the unique needs of your landscape.&lt;/p&gt;&#xA;&lt;h2 id=&#34;weed-control&#34;&gt;Weed Control&lt;/h2&gt;&#xA;&lt;p&gt;Our licensed technician uses safe and effective methods to target and eliminate unwanted weeds, ensuring they don&amp;rsquo;t compete with your lawn&amp;rsquo;s grass for essential nutrients. We carefully select treatments that are appropriate for your specific lawn type, applying them at the right time to maximize results while protecting your plants, pets, and the environment.&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,20 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:61217/services/core-aeration/</loc>
+    <loc>https://boxerlawn.com/services/core-aeration/</loc>
     <lastmod>2025-11-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:61217/services/</loc>
+    <loc>https://boxerlawn.com/services/</loc>
     <lastmod>2025-11-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:61217/services/weed-control-fertilization/</loc>
+    <loc>https://boxerlawn.com/services/weed-control-fertilization/</loc>
     <lastmod>2025-11-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:61217/</loc>
+    <loc>https://boxerlawn.com/</loc>
     <lastmod>2025-11-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:61217/categories/</loc>
+    <loc>https://boxerlawn.com/categories/</loc>
   </url><url>
-    <loc>http://localhost:61217/tags/</loc>
+    <loc>https://boxerlawn.com/tags/</loc>
   </url>
 </urlset>
