@@ -41,6 +41,19 @@ Thank you!`
 };
 
 exports.handler = async (event, context) => {
+  // Handle CORS preflight
+  if (event.httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS'
+      },
+      body: ''
+    };
+  }
+
   // Only allow POST requests
   if (event.httpMethod !== 'POST') {
     return {
@@ -64,6 +77,7 @@ exports.handler = async (event, context) => {
     if (!formData.name || !formData.email || !formData.phone || !formData.address || !formData.lawn_size) {
       return {
         statusCode: 400,
+        headers: { 'Access-Control-Allow-Origin': '*' },
         body: JSON.stringify({ error: 'Missing required fields' })
       };
     }
@@ -76,6 +90,7 @@ exports.handler = async (event, context) => {
       console.error('SendGrid API key not configured');
       return {
         statusCode: 500,
+        headers: { 'Access-Control-Allow-Origin': '*' },
         body: JSON.stringify({ error: 'Email service not configured' })
       };
     }
@@ -128,7 +143,8 @@ Estimated Quote Sent: ${template.price} per application`,
     return {
       statusCode: 303,
       headers: {
-        'Location': '/quote-thank-you/'
+        'Location': '/quote-thank-you/',
+        'Access-Control-Allow-Origin': '*'
       },
       body: ''
     };
@@ -138,6 +154,7 @@ Estimated Quote Sent: ${template.price} per application`,
     
     return {
       statusCode: 500,
+      headers: { 'Access-Control-Allow-Origin': '*' },
       body: JSON.stringify({ 
         error: 'Failed to process form submission',
         details: error.message 
