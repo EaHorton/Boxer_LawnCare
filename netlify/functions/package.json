@@ -1,0 +1,9 @@
+{
+  "name": "netlify-functions",
+  "version": "1.0.0",
+  "description": "Netlify Functions for Boxer Lawn Website",
+  "main": "index.js",
+  "dependencies": {
+    "@sendgrid/mail": "^7.7.0"
+  }
+}
