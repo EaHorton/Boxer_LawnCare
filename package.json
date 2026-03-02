@@ -1,0 +1,8 @@
+{
+  "name": "boxer-lawn-website",
+  "version": "1.0.0",
+  "description": "Boxer Lawn & Landscape Website",
+  "dependencies": {
+    "@sendgrid/mail": "^7.7.0"
+  }
+}
