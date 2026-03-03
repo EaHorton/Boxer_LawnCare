@@ -41,6 +41,9 @@ Thank you!`
 };
 
 exports.handler = async (event, context) => {
+  console.log('Function invoked with method:', event.httpMethod);
+  console.log('Event body:', event.body);
+  
   // Handle CORS preflight
   if (event.httpMethod === 'OPTIONS') {
     return {
@@ -56,9 +59,15 @@ exports.handler = async (event, context) => {
 
   // Only allow POST requests
   if (event.httpMethod !== 'POST') {
+    console.error('Method not allowed:', event.httpMethod);
     return {
       statusCode: 405,
-      body: JSON.stringify({ error: 'Method Not Allowed' })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 
+        error: 'Method Not Allowed',
+        received: event.httpMethod,
+        expected: 'POST'
+      })
     };
   }
 
@@ -72,6 +81,8 @@ exports.handler = async (event, context) => {
       address: params.get('address'),
       lawn_size: params.get('lawn_size')
     };
+    
+    console.log('Parsed form data:', formData);
 
     // Validate required fields
     if (!formData.name || !formData.email || !formData.phone || !formData.address || !formData.lawn_size) {

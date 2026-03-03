@@ -57,17 +57,55 @@
 </div>
 
 <script>
-// Form validation
+// Form handling
 (function () {
     'use strict'
     var form = document.querySelector('form')
     
-    form.addEventListener('submit', function (event) {
+    form.addEventListener('submit', async function (event) {
+        event.preventDefault()
+        event.stopPropagation()
+        
         if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
+            form.classList.add('was-validated')
+            return
         }
-        form.classList.add('was-validated')
+        
+        // Get form data
+        const formData = new FormData(form)
+        const button = form.querySelector('button[type="submit"]')
+        const originalButtonText = button.innerHTML
+        
+        // Disable button and show loading state
+        button.disabled = true
+        button.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...'
+        
+        try {
+            // Submit form data
+            const response = await fetch('/.netlify/functions/submit-quote', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams(formData).toString()
+            })
+            
+            if (response.ok || response.status === 303) {
+                // Redirect to thank you page
+                window.location.href = '/quote-thank-you/'
+            } else {
+                const error = await response.json()
+                console.error('Form submission error:', error)
+                alert('There was an error submitting your request. Please try again or call us directly.')
+                button.disabled = false
+                button.innerHTML = originalButtonText
+            }
+        } catch (error) {
+            console.error('Network error:', error)
+            alert('There was an error submitting your request. Please check your connection and try again.')
+            button.disabled = false
+            button.innerHTML = originalButtonText
+        }
     }, false)
 })()
 </script>
