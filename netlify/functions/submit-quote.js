@@ -1,48 +1,10 @@
 const sgMail = require('@sendgrid/mail');
 
-// Email templates for each lawn size
-const emailTemplates = {
-  small: {
-    subject: "Your Weed Control & Fertilization Quote",
-    price: "$55",
-    getContent: (name) => `Hi ${name},
-
-Thank you for reaching out for a weed control & fertilization quote! The price for your property would be $55 per application, at 8 applications a year. This would include weed control & fertilization, but I also offer fire ant prevention, flea and tick prevention, grub and army worm control, and aeration at an additional cost. Please let me know if you have any questions and I look forward to working with you.
-
-Thank you!`
-  },
-  medium: {
-    subject: "Your Weed Control & Fertilization Quote",
-    price: "$88",
-    getContent: (name) => `Hi ${name},
-
-Thank you for reaching out for a weed control & fertilization quote! The price for your property would be $88 per application, at 8 applications a year. This would include weed control & fertilization, but I also offer fire ant prevention, flea and tick prevention, grub and army worm control, and aeration at an additional cost. Please let me know if you have any questions and I look forward to working with you.
-
-Thank you!`
-  },
-  large: {
-    subject: "Your Weed Control & Fertilization Quote",
-    price: "$135",
-    getContent: (name) => `Hi ${name},
-
-Thank you for reaching out for a weed control & fertilization quote! The price for your property would be $135 per application, at 8 applications a year. This would include weed control & fertilization, but I also offer fire ant prevention, flea and tick prevention, grub and army worm control, and aeration at an additional cost. Please let me know if you have any questions and I look forward to working with you.
-
-Thank you!`
-  },
-  xlarge: {
-    subject: "Your Weed Control & Fertilization Quote",
-    price: "$175",
-    getContent: (name) => `Hi ${name},
-
-Thank you for reaching out for a weed control & fertilization quote! The price for your property would be $175 per application, at 8 applications a year. This would include weed control & fertilization, but I also offer fire ant prevention, flea and tick prevention, grub and army worm control, and aeration at an additional cost. Please let me know if you have any questions and I look forward to working with you.
-
-Thank you!`
-  }
-};
-
 exports.handler = async (event, context) => {
-  console.log('Function invoked with method:', event.httpMethod);
-  console.log('Event body:', event.body);
+  console.log('=== Function invoked ===');
+  console.log('Method:', event.httpMethod);
+  console.log('Path:', event.path);
+  console.log('Body:', event.body);
   
   // Handle CORS preflight
   if (event.httpMethod === 'OPTIONS') {
@@ -82,7 +44,7 @@ exports.handler = async (event, context) => {
       lawn_size: params.get('lawn_size')
     };
     
-    console.log('Parsed form data:', formData);
+    console.log('Parsed form data:', JSON.stringify(formData));
 
     // Validate required fields
     if (!formData.name || !formData.email || !formData.phone || !formData.address || !formData.lawn_size) {
@@ -108,9 +70,20 @@ exports.handler = async (event, context) => {
 
     sgMail.setApiKey(SENDGRID_API_KEY);
 
-    // Get the appropriate email template
-    const template = emailTemplates[formData.lawn_size] || emailTemplates.medium;
-    const emailContent = template.getContent(formData.name);
+    // Email templates
+    const prices = {
+      small: '$55',
+      medium: '$88',
+      large: '$135',
+      xlarge: '$175'
+    };
+    
+    const price = prices[formData.lawn_size] || prices.medium;
+    const emailContent = `Hi ${formData.name},
+
+Thank you for reaching out for a weed control & fertilization quote! The price for your property would be ${price} per application, at 8 applications a year. This would include weed control & fertilization, but I also offer fire ant prevention, flea and tick prevention, grub and army worm control, and aeration at an additional cost. Please let me know if you have any questions and I look forward to working with you.
+
+Thank you!`;
 
     // Email to customer
     const customerEmail = {
@@ -120,7 +93,7 @@ exports.handler = async (event, context) => {
       text: emailContent,
       html: emailContent.replace(/\n/g, '<br>')
     };
-
+JSON.stringify(formData)
     // Email to business owner
     const businessEmail = {
       to: BUSINESS_EMAIL,
@@ -134,30 +107,33 @@ Phone: ${formData.phone}
 Address: ${formData.address}
 Lawn Size: ${formData.lawn_size}
 
-Estimated Quote Sent: ${template.price} per application`,
+Estimated Quote Sent: ${price} per application`,
       html: `<h2>New Instant Quote Request</h2>
 <p><strong>Name:</strong> ${formData.name}</p>
 <p><strong>Email:</strong> ${formData.email}</p>
 <p><strong>Phone:</strong> ${formData.phone}</p>
 <p><strong>Address:</strong> ${formData.address}</p>
 <p><strong>Lawn Size:</strong> ${formData.lawn_size}</p>
-<p><strong>Estimated Quote Sent:</strong> ${template.price} per application</p>`
+<p><strong>Estimated Quote Sent:</strong> ${price} per application</p>`
     };
 
     // Send both emails
+    console.log('Sending emails...');
     await Promise.all([
       sgMail.send(customerEmail),
       sgMail.send(businessEmail)
     ]);
+    
+    console.log('Emails sent successfully');
 
     // Return success response with redirect
     return {
-      statusCode: 303,
+      statusCode: 200,
       headers: {
-        'Location': '/quote-thank-you/',
+        'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
       },
-      body: ''
+      body: JSON.stringify({ success: true, redirect: '/quote-thank-you/' })
     };
 
   } catch (error) {
