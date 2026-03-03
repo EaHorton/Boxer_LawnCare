@@ -66,10 +66,15 @@
         event.preventDefault()
         event.stopPropagation()
         
+        console.log('Form submit triggered')
+        
         if (!form.checkValidity()) {
             form.classList.add('was-validated')
+            console.log('Form validation failed')
             return
         }
+        
+        console.log('Form is valid, preparing to submit')
         
         // Get form data
         const formData = new FormData(form)
@@ -81,6 +86,8 @@
         button.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...'
         
         try {
+            console.log('Sending request to /.netlify/functions/submit-quote')
+            
             // Submit form data
             const response = await fetch('/.netlify/functions/submit-quote', {
                 method: 'POST',
@@ -90,12 +97,23 @@
                 body: new URLSearchParams(formData).toString()
             })
             
+            console.log('Response status:', response.status)
+            console.log('Response OK:', response.ok)
+            
             if (response.ok || response.status === 303) {
                 // Redirect to thank you page
+                console.log('Success! Redirecting to thank you page')
                 window.location.href = '/quote-thank-you/'
             } else {
-                const error = await response.json()
-                console.error('Form submission error:', error)
+                let errorMessage = 'Error submitting form'
+                try {
+                    const error = await response.json()
+                    console.error('Form submission error:', error)
+                    errorMessage = error.error || errorMessage
+                } catch (e) {
+                    const errorText = await response.text()
+                    console.error('Error response text:', errorText)
+                }
                 alert('There was an error submitting your request. Please try again or call us directly.')
                 button.disabled = false
                 button.innerHTML = originalButtonText
