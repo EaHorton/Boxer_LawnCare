@@ -1,42 +1,21 @@
-const sgMail = require('@sendgrid/mail');
-
 exports.handler = async (event, context) => {
-  console.log('=== Function invoked ===');
-  console.log('Method:', event.httpMethod);
-  console.log('Path:', event.path);
-  console.log('Body:', event.body);
-  console.log('Headers:', JSON.stringify(event.headers));
+  // Always return success for now to test
+  console.log('=== FUNCTION CALLED ===');
+  console.log('HTTP Method:', event.httpMethod);
   
-  // Handle CORS preflight
-  if (event.httpMethod === 'OPTIONS') {
-    return {
-      statusCode: 200,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Methods': 'POST, OPTIONS'
-      },
-      body: ''
-    };
-  }
-
-  // Only allow POST requests
-  if (event.httpMethod !== 'POST') {
-    console.error('Method not allowed:', event.httpMethod);
-    console.error('Full event:', JSON.stringify(event));
-    return {
-      statusCode: 405,
-      headers: { 
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      },
-      body: JSON.stringify({ 
-        error: 'Method Not Allowed',
-        received: event.httpMethod,
-        expected: 'POST'
-      })
-    };
-  }
+  return {
+    statusCode: 200,
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    },
+    body: JSON.stringify({ 
+      success: true,
+      message: 'Function is working!',
+      method: event.httpMethod,
+      redirect: '/quote-thank-you/'
+    })
+  };
 
   try {
     // Parse form data
