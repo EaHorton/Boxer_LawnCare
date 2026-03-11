@@ -89,11 +89,11 @@ Thank you!`;
     const customerEmail = {
       to: formData.email,
       from: BUSINESS_EMAIL,
-      subject: template.subject,
+      subject: 'Your Lawn Care Quote from Boxer Lawn & Landscape',
       text: emailContent,
       html: emailContent.replace(/\n/g, '<br>')
     };
-JSON.stringify(formData)
+    
     // Email to business owner
     const businessEmail = {
       to: BUSINESS_EMAIL,
