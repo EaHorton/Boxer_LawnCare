@@ -5,6 +5,7 @@ exports.handler = async (event, context) => {
   console.log('Method:', event.httpMethod);
   console.log('Path:', event.path);
   console.log('Body:', event.body);
+  console.log('Headers:', JSON.stringify(event.headers));
   
   // Handle CORS preflight
   if (event.httpMethod === 'OPTIONS') {
@@ -22,9 +23,13 @@ exports.handler = async (event, context) => {
   // Only allow POST requests
   if (event.httpMethod !== 'POST') {
     console.error('Method not allowed:', event.httpMethod);
+    console.error('Full event:', JSON.stringify(event));
     return {
       statusCode: 405,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      },
       body: JSON.stringify({ 
         error: 'Method Not Allowed',
         received: event.httpMethod,
