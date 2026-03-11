@@ -1,11 +1,12 @@
 [build]
   publish = "public"
-  command = "hugo --gc --minify"
+  command = "npm install && hugo --gc --minify"
   functions = "netlify/functions"
 
 [build.environment]
   HUGO_VERSION = "0.124.0"
   HUGO_ENV = "production"
+  NPM_FLAGS = "--prefix netlify/functions"
 
 [context.production.environment]
   HUGO_ENV = "production"
